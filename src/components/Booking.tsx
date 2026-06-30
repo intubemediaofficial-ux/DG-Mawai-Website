@@ -31,36 +31,36 @@ export default function Booking() {
   };
 
   return (
-    <section id="booking" className="bg-[#080808] px-4 py-16 sm:py-24">
-      <div className="section-divider mb-10" />
+    <section id="booking" className="bg-[#080808] px-6 py-20 sm:px-8 sm:py-32">
+      <div className="section-divider mb-14" />
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Booking
           </p>
-          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
             Book a <span className="gradient-gold">Show</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
             Want DG Mawai to perform at your event? Fill out the form below or
             contact directly.
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Contact Info */}
           <div>
             <h3 className="mb-6 text-2xl font-black leading-tight text-[#d4af37]">
               Contact Information
             </h3>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-5 mb-10">
               <a
                 href={`mailto:${content.contact.email}`}
-                className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-4 hover:border-[#d4af37]/50 transition-colors"
+                className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-5 hover:border-[#d4af37]/50 transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
                   <Mail size={18} className="text-[#d4af37]" />
                 </div>
                 <div>
@@ -75,9 +75,9 @@ export default function Booking() {
                 href={`https://wa.me/${content.contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-4 hover:border-[#d4af37]/50 transition-colors"
+                className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-5 hover:border-[#d4af37]/50 transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                <div className="w-11 h-11 rounded-full bg-green-500/20 flex items-center justify-center">
                   <Phone size={18} className="text-green-400" />
                 </div>
                 <div>
@@ -88,8 +88,8 @@ export default function Booking() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-4">
-                <div className="w-10 h-10 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
+              <div className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-5">
+                <div className="w-11 h-11 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
                   <MapPin size={18} className="text-[#d4af37]" />
                 </div>
                 <div>
@@ -100,7 +100,7 @@ export default function Booking() {
             </div>
 
             {/* Booking Info */}
-            <div className="bg-[#141414] border border-[#d4af37]/30 rounded-xl p-5">
+            <div className="bg-[#141414] border border-[#d4af37]/30 rounded-xl p-6">
               <h4 className="font-semibold text-[#d4af37] mb-3">
                 Booking Info
               </h4>
@@ -125,13 +125,13 @@ export default function Booking() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-5 sm:p-7"
+              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-6 sm:p-8"
             >
               <h3 className="mb-6 text-xl font-black leading-tight text-white">
                 Fill Booking <span className="gradient-gold">Enquiry</span>
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-5">
                 <div>
                   <input
                     type="text"
