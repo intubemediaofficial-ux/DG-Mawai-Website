@@ -9,17 +9,17 @@ export default function Music() {
   const { content } = useSiteContent();
 
   return (
-    <section id="music" className="bg-[#080808] px-4 py-16 sm:py-24">
+    <section id="music" className="bg-[#080808] px-6 py-20 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="section-divider mb-10" />
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="section-divider mb-14" />
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Music
           </p>
-          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
             <span className="gradient-gold">Trending</span> Songs
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
             Viral Rasiya songs, fan favourites, and upcoming releases by DG Mawai.
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function Music() {
               href={spotifyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block border-b border-[#2a2a2a]/70 px-5 py-5 transition last:border-b-0 hover:bg-white/[0.03] sm:grid sm:grid-cols-12 sm:items-center sm:gap-4 sm:px-6"
+              className="block border-b border-[#2a2a2a]/70 px-5 py-6 transition last:border-b-0 hover:bg-white/[0.03] sm:grid sm:grid-cols-12 sm:items-center sm:gap-4 sm:px-6"
             >
               <div className="hidden text-sm font-bold text-gray-500 sm:col-span-1 sm:block">
                 {index + 1}
@@ -77,11 +77,11 @@ export default function Music() {
           ))}
         </div>
 
-        <div className="mt-14">
+        <div className="mt-16">
           <h3 className="mb-6 text-center text-2xl font-black leading-tight text-white">
             Upcoming & Latest <span className="gradient-gold">Releases</span>
           </h3>
-          <div className="grid gap-5 sm:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-3">
             {content.releases.map((song) => (
               <div key={song.title} className="rounded-3xl border border-[#2a2a2a] bg-[#141414] p-6 card-hover">
                 <div className="mb-4 flex items-center justify-between gap-3">
@@ -100,7 +100,7 @@ export default function Music() {
           </div>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-gold px-7 py-3 text-sm font-bold text-black transition hover:scale-105">
             <ExternalLink size={18} />
             Listen on All Platforms

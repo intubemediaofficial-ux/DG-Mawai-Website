@@ -7,23 +7,23 @@ export default function Gallery() {
   const { content } = useSiteContent();
 
   return (
-    <section id="gallery" className="bg-[#0a0a0a] px-4 py-16 sm:py-24">
+    <section id="gallery" className="bg-[#0a0a0a] px-6 py-20 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="section-divider mb-10" />
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="section-divider mb-14" />
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Photo Gallery
           </p>
-          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
             DG Mawai <span className="gradient-gold">Official Photos</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
             Singer portraits, traditional looks, live show moments, and artist
             photos shared for the official website.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-4">
           {content.photos.map((item) => (
             <figure
               key={item.src}
@@ -52,7 +52,7 @@ export default function Gallery() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a
             href="https://www.instagram.com/dg_mavi_gurjar"
             target="_blank"

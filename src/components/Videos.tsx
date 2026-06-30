@@ -8,23 +8,23 @@ export default function Videos() {
   const { content } = useSiteContent();
 
   return (
-    <section id="videos" className="bg-[#0a0a0a] px-4 py-16 sm:py-24">
+    <section id="videos" className="bg-[#0a0a0a] px-6 py-20 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="section-divider mb-10" />
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="section-divider mb-14" />
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Videos
           </p>
-          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
             Music <span className="gradient-gold">Videos</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
             Watch DG Mawai songs, live performances, and new Rasiya releases on
             the official YouTube channel.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {content.videos.map((video) => (
             <a key={video.title} href={video.url} target="_blank" rel="noopener noreferrer" className="group card-hover">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#141414]">
@@ -55,7 +55,7 @@ export default function Videos() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a href="https://www.youtube.com/@DGMawaiofficial" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-red-500 px-6 py-3 text-sm font-bold text-red-400 transition hover:bg-red-500/10">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />

@@ -17,30 +17,30 @@ export default function Events() {
   const { content } = useSiteContent();
 
   return (
-    <section id="events" className="bg-[#080808] px-4 py-16 sm:py-24">
-      <div className="section-divider mb-10" />
+    <section id="events" className="bg-[#080808] px-6 py-20 sm:px-8 sm:py-32">
+      <div className="section-divider mb-14" />
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Live Shows
           </p>
-          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
             Upcoming <span className="gradient-gold">Events</span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
             Catch DG Mawai live at upcoming shows and events across India.
           </p>
         </div>
 
         {/* Events Grid */}
-        <div className="mb-12 grid gap-6 lg:grid-cols-2">
+        <div className="mb-14 grid gap-8 lg:grid-cols-2">
           {content.events.map((event, index) => (
             <div
               key={index}
-              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-5 card-hover sm:p-6"
+              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-6 card-hover sm:p-8"
             >
-              <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h3 className="mb-2 text-xl font-black leading-tight text-white">
                     {event.title}
@@ -58,7 +58,7 @@ export default function Events() {
                 </span>
               </div>
 
-              <div className="mb-5 flex flex-wrap gap-x-5 gap-y-3 text-sm leading-6 text-gray-400">
+              <div className="mb-6 flex flex-wrap gap-x-6 gap-y-4 text-sm leading-6 text-gray-400">
                 <span className="flex items-center gap-1">
                   <Calendar size={14} className="text-[#d4af37]" />
                   {event.date}
@@ -100,7 +100,7 @@ export default function Events() {
           <h3 className="mb-6 text-center text-2xl font-black leading-tight text-white">
             Past <span className="gradient-gold">Performances</span>
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-4">
             {pastEvents.map((event, index) => (
               <div
                 key={index}

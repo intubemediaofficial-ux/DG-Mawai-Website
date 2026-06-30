@@ -2,13 +2,13 @@ import { Mail, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-[#2a2a2a] pt-12 pb-6 px-4">
+    <footer className="bg-[#0a0a0a] border-t border-[#2a2a2a] pt-16 pb-8 px-6 sm:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold gradient-gold mb-3">DG Mawai</h3>
-            <p className="text-gray-400 text-sm max-w-sm mb-4">
+            <h3 className="text-2xl font-bold gradient-gold mb-4">DG Mawai</h3>
+            <p className="text-gray-400 text-sm leading-7 max-w-sm mb-6">
               Rajasthani Rasiya Singer | The Voice of Chambal | Available for
               live shows, weddings, and events across India.
             </p>
@@ -72,7 +72,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="#about"
@@ -127,7 +127,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-semibold text-white mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm">
               <li className="text-gray-400">
                 <span className="text-[#d4af37]">Email:</span>{" "}
                 Dgmawaiofficial@gmail.com
@@ -145,7 +145,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-[#2a2a2a] pt-6 text-center">
+        <div className="border-t border-[#2a2a2a] pt-8 text-center">
           <p className="text-sm text-gray-500 flex items-center justify-center gap-1">
             &copy; {new Date().getFullYear()} DG Mawai. All Rights Reserved.
             Made with <Heart size={12} className="text-red-500" /> in India

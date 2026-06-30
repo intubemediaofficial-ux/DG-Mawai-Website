@@ -18,8 +18,8 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#2a2a2a]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="flex items-center justify-between h-18">
           <a href="#home" className="text-2xl font-bold gradient-gold">
             DG Mawai
           </a>
@@ -56,7 +56,7 @@ export default function Navbar() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-md border-t border-[#2a2a2a]">
-          <div className="px-4 py-4 flex flex-col gap-4">
+          <div className="px-6 py-5 flex flex-col gap-5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
