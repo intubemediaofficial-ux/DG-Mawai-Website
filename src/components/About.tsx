@@ -1,74 +1,86 @@
 "use client";
 
 import Image from "next/image";
-import { Award, Heart, Mic2, Star } from "lucide-react";
+import { Mic2, Disc3, TrendingUp, Theater } from "lucide-react";
 import { useSiteContent } from "@/lib/useSiteContent";
-
-const achievements = [
-  { icon: Award, value: "120K+", label: "Spotify Listeners" },
-  { icon: Heart, value: "50+", label: "Songs Released" },
-  { icon: Star, value: "Viral", label: "Trending Hits" },
-  { icon: Mic2, value: "500+", label: "Live Shows" },
-];
 
 export default function About() {
   const { content } = useSiteContent();
 
+  const achievements = [
+    { icon: Mic2, text: "120K+ Spotify Listeners" },
+    { icon: Disc3, text: "50+ Songs Released" },
+    { icon: TrendingUp, text: "Viral Trending Hits" },
+    { icon: Theater, text: "500+ Live Shows" },
+  ];
+
   return (
-    <section id="about" className="relative bg-[#0a0a0a] px-6 py-20 sm:px-8 sm:py-32">
-      <div className="mx-auto max-w-7xl">
-        <div className="section-divider mb-14" />
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+    <section id="about" className="bg-[#0a0a0a]">
+      {/* Divider */}
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-8 py-28 sm:px-12 sm:py-36 lg:px-16 lg:py-44">
+        {/* Section Header */}
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             {content.about.eyebrow}
           </p>
-          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
-            {content.about.title} <span className="gradient-gold">{content.about.highlight}</span>
+          <h2 className="text-4xl font-black leading-snug text-white sm:text-5xl lg:text-6xl">
+            {content.about.title}{" "}
+            <span className="gradient-gold">{content.about.highlight}</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-400">
             {content.about.intro}
           </p>
         </div>
 
-        <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <div className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -right-4 -top-4 h-28 w-28 rounded-3xl border-2 border-[#d4af37]/30" />
-            <div className="absolute -bottom-4 -left-4 h-28 w-28 rounded-3xl border-2 border-[#d4af37]/30" />
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#d4af37]/20 bg-[#141414] shadow-2xl shadow-black/40">
+        {/* Content Grid */}
+        <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-24">
+          {/* Photo */}
+          <div className="relative overflow-hidden rounded-3xl border border-[#2a2a2a] shadow-2xl shadow-black/30">
+            <div className="relative aspect-[4/5]">
               <Image
                 src={content.about.image}
-                alt="DG Mawai traditional Rajasthani portrait"
+                alt="DG Mawai"
                 fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-top"
               />
             </div>
           </div>
 
-          <div>
-            <h3 className="text-2xl font-black leading-tight text-white sm:text-3xl">
+          {/* Text Content */}
+          <div className="flex flex-col justify-center">
+            <h3 className="text-3xl font-black leading-snug text-white sm:text-4xl">
               {content.about.heading}
             </h3>
-            <div className="mt-8 space-y-6 text-base leading-8 text-gray-300">
-              {content.about.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+
+            <div className="mt-10 space-y-7">
+              {content.about.paragraphs.map((para, index) => (
+                <p
+                  key={index}
+                  className="text-base leading-8 text-gray-300 sm:text-lg sm:leading-9"
+                >
+                  {para}
+                </p>
               ))}
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {achievements.map(({ icon: Icon, value, label }) => (
-                <div key={label} className="flex items-center gap-4 rounded-2xl border border-[#2a2a2a] bg-[#141414] p-5">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/15">
+            {/* Achievements Grid */}
+            <div className="mt-14 grid grid-cols-2 gap-5">
+              {achievements.map(({ icon: Icon, text }) => (
+                <div
+                  key={text}
+                  className="flex items-start gap-4 rounded-2xl border border-[#2a2a2a] bg-[#141414] p-6"
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#d4af37]/15">
                     <Icon size={22} className="text-[#d4af37]" />
                   </div>
-                  <div>
-                    <p className="text-lg font-black leading-tight text-white">
-                      {value}
-                    </p>
-                    <p className="mt-1 text-sm leading-5 text-gray-400">
-                      {label}
-                    </p>
-                  </div>
+                  <p className="text-sm font-semibold leading-relaxed text-white">
+                    {text}
+                  </p>
                 </div>
               ))}
             </div>

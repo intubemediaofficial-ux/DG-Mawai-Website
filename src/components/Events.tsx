@@ -1,114 +1,121 @@
 "use client";
 
-import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
+import { Calendar, Clock, MapPin, Ticket } from "lucide-react";
 import { useSiteContent } from "@/lib/useSiteContent";
 
-
 const pastEvents = [
-  { city: "Jaipur", event: "Rajasthan Folk Festival 2025" },
-  { city: "Delhi", event: "Gurjar Sammelan 2025" },
-  { city: "Agra", event: "New Year Celebration 2025" },
-  { city: "Bharatpur", event: "Republic Day Show 2025" },
-  { city: "Mathura", event: "Holi Special 2025" },
-  { city: "Gwalior", event: "Chambal Mahotsav 2024" },
+  "Jaipur - Rajasthan Folk Festival 2025",
+  "Delhi - Gurjar Sammelan 2025",
+  "Agra - New Year Celebration 2025",
+  "Bharatpur - Republic Day Show 2025",
+  "Mathura - Holi Special 2025",
+  "Gwalior - Chambal Mahotsav 2024",
 ];
 
 export default function Events() {
   const { content } = useSiteContent();
 
   return (
-    <section id="events" className="bg-[#080808] px-6 py-20 sm:px-8 sm:py-32">
-      <div className="section-divider mb-14" />
-      <div className="mx-auto max-w-7xl">
+    <section id="events" className="bg-[#080808]">
+      {/* Divider */}
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-8 py-28 sm:px-12 sm:py-36 lg:px-16 lg:py-44">
         {/* Section Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Live Shows
           </p>
-          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
+          <h2 className="text-4xl font-black leading-snug text-white sm:text-5xl lg:text-6xl">
             Upcoming <span className="gradient-gold">Events</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-400">
             Catch DG Mawai live at upcoming shows and events across India.
           </p>
         </div>
 
-        {/* Events Grid */}
-        <div className="mb-14 grid gap-8 lg:grid-cols-2">
-          {content.events.map((event, index) => (
+        {/* Events List */}
+        <div className="grid gap-8">
+          {content.events.map((event) => (
             <div
-              key={index}
-              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-6 card-hover sm:p-8"
+              key={event.title}
+              className="overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#111] p-8 sm:p-10"
             >
-              <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="mb-2 text-xl font-black leading-tight text-white">
-                    {event.title}
-                  </h3>
-                  <p className="text-sm text-gray-400">{event.venue}</p>
+              <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+                <div className="flex-1">
+                  <div className="mb-6 flex flex-wrap items-center gap-3">
+                    <h3 className="text-2xl font-black leading-relaxed text-white sm:text-3xl">
+                      {event.title}
+                    </h3>
+                    <span
+                      className={`rounded-full px-4 py-1.5 text-xs font-bold ${
+                        event.status === "Tickets Available"
+                          ? "bg-green-500/15 text-green-400"
+                          : "bg-[#d4af37]/15 text-[#d4af37]"
+                      }`}
+                    >
+                      {event.status}
+                    </span>
+                  </div>
+
+                  <p className="mb-8 text-base font-medium text-gray-400">
+                    {event.venue}
+                  </p>
+
+                  <div className="flex flex-wrap gap-x-8 gap-y-5">
+                    <div className="flex items-center gap-3 text-sm text-gray-300">
+                      <Calendar size={16} className="text-[#d4af37]" />
+                      <span className="font-medium">{event.date}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-gray-300">
+                      <Clock size={16} className="text-[#d4af37]" />
+                      <span className="font-medium">{event.time}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-gray-300">
+                      <MapPin size={16} className="text-[#d4af37]" />
+                      <span className="font-medium">{event.city}</span>
+                    </div>
+                  </div>
                 </div>
-                <span
-                  className={`w-fit whitespace-nowrap rounded-full px-3 py-1 text-xs font-bold ${
-                    event.status === "Tickets Available"
-                      ? "bg-green-500/20 text-green-400"
-                      : "bg-[#d4af37]/20 text-[#d4af37]"
-                  }`}
-                >
-                  {event.status}
-                </span>
-              </div>
 
-              <div className="mb-6 flex flex-wrap gap-x-6 gap-y-4 text-sm leading-6 text-gray-400">
-                <span className="flex items-center gap-1">
-                  <Calendar size={14} className="text-[#d4af37]" />
-                  {event.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock size={14} className="text-[#d4af37]" />
-                  {event.time}
-                </span>
-                <span className="flex items-center gap-1">
-                  <MapPin size={14} className="text-[#d4af37]" />
-                  {event.city}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <span className="text-[#d4af37] font-semibold">
-                  {event.price}
-                </span>
-                {event.status === "Tickets Available" ? (
-                  <a
-                    href="#booking"
-                    className="inline-flex items-center gap-2 bg-gradient-gold text-black px-4 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform"
-                  >
-                    <Ticket size={14} />
-                    Book Tickets
-                  </a>
-                ) : (
-                  <span className="text-xs text-gray-500">
-                    Booking opens soon
-                  </span>
-                )}
+                <div className="shrink-0 text-left lg:text-right">
+                  <p className="mb-4 text-2xl font-black text-[#d4af37]">
+                    {event.price}
+                  </p>
+                  {event.status === "Tickets Available" ? (
+                    <a
+                      href="#booking"
+                      className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-gold px-8 py-3 text-sm font-bold text-black transition hover:scale-105"
+                    >
+                      <Ticket size={16} />
+                      Get Tickets
+                    </a>
+                  ) : (
+                    <span className="text-sm font-medium text-gray-400">
+                      Booking opens soon
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Past Events */}
-        <div>
-          <h3 className="mb-6 text-center text-2xl font-black leading-tight text-white">
-            Past <span className="gradient-gold">Performances</span>
+        {/* Past Performances */}
+        <div className="mt-20">
+          <h3 className="mb-8 text-2xl font-black leading-snug text-white">
+            Past Performances
           </h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {pastEvents.map((event, index) => (
-              <div
-                key={index}
-                className="rounded-full border border-[#2a2a2a] bg-[#141414] px-4 py-2 text-sm leading-6"
+          <div className="flex flex-wrap gap-4">
+            {pastEvents.map((event) => (
+              <span
+                key={event}
+                className="rounded-full border border-[#2a2a2a] bg-[#111] px-6 py-3 text-sm font-medium text-gray-300"
               >
-                <span className="text-[#d4af37]">{event.city}</span>
-                <span className="text-gray-500 ml-2">- {event.event}</span>
-              </div>
+                {event}
+              </span>
             ))}
           </div>
         </div>

@@ -31,41 +31,45 @@ export default function Booking() {
   };
 
   return (
-    <section id="booking" className="bg-[#080808] px-6 py-20 sm:px-8 sm:py-32">
-      <div className="section-divider mb-14" />
-      <div className="mx-auto max-w-7xl">
+    <section id="booking" className="bg-[#080808]">
+      {/* Divider */}
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent" />
+      </div>
+
+      <div className="mx-auto max-w-7xl px-8 py-28 sm:px-12 sm:py-36 lg:px-16 lg:py-44">
         {/* Section Header */}
-        <div className="mx-auto mb-16 max-w-3xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
             Booking
           </p>
-          <h2 className="text-3xl font-black leading-snug text-white sm:text-5xl">
+          <h2 className="text-4xl font-black leading-snug text-white sm:text-5xl lg:text-6xl">
             Book a <span className="gradient-gold">Show</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400">
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-400">
             Want DG Mawai to perform at your event? Fill out the form below or
             contact directly.
           </p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Contact Info */}
           <div>
-            <h3 className="mb-6 text-2xl font-black leading-tight text-[#d4af37]">
+            <h3 className="mb-8 text-2xl font-black leading-snug text-[#d4af37]">
               Contact Information
             </h3>
 
-            <div className="space-y-5 mb-10">
+            <div className="mb-12 space-y-5">
               <a
                 href={`mailto:${content.contact.email}`}
-                className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-5 hover:border-[#d4af37]/50 transition-colors"
+                className="flex items-center gap-5 rounded-2xl border border-[#2a2a2a] bg-[#111] p-6 transition hover:border-[#d4af37]/50"
               >
-                <div className="w-11 h-11 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
-                  <Mail size={18} className="text-[#d4af37]" />
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/20">
+                  <Mail size={20} className="text-[#d4af37]" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
-                  <p className="break-all text-base font-semibold leading-6 text-white">
+                  <p className="mt-1 break-all text-base font-semibold leading-relaxed text-white">
                     {content.contact.email}
                   </p>
                 </div>
@@ -75,46 +79,46 @@ export default function Booking() {
                 href={`https://wa.me/${content.contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-5 hover:border-[#d4af37]/50 transition-colors"
+                className="flex items-center gap-5 rounded-2xl border border-[#2a2a2a] bg-[#111] p-6 transition hover:border-[#d4af37]/50"
               >
-                <div className="w-11 h-11 rounded-full bg-green-500/20 flex items-center justify-center">
-                  <Phone size={18} className="text-green-400" />
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-500/20">
+                  <Phone size={20} className="text-green-400" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">WhatsApp</p>
-                  <p className="text-white font-medium">
+                  <p className="mt-1 text-base font-medium text-white">
                     Contact on WhatsApp
                   </p>
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-5">
-                <div className="w-11 h-11 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
-                  <MapPin size={18} className="text-[#d4af37]" />
+              <div className="flex items-center gap-5 rounded-2xl border border-[#2a2a2a] bg-[#111] p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/20">
+                  <MapPin size={20} className="text-[#d4af37]" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Based in</p>
-                  <p className="text-white font-medium">{content.contact.location}</p>
+                  <p className="mt-1 text-base font-medium text-white">{content.contact.location}</p>
                 </div>
               </div>
             </div>
 
             {/* Booking Info */}
-            <div className="bg-[#141414] border border-[#d4af37]/30 rounded-xl p-6">
-              <h4 className="font-semibold text-[#d4af37] mb-3">
+            <div className="rounded-2xl border border-[#d4af37]/30 bg-[#111] p-8">
+              <h4 className="mb-5 text-lg font-semibold text-[#d4af37]">
                 Booking Info
               </h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li className="flex items-center gap-2">
-                  <Calendar size={14} className="text-[#d4af37]" />
+              <ul className="space-y-4 text-sm leading-relaxed text-gray-300">
+                <li className="flex items-start gap-3">
+                  <Calendar size={16} className="mt-0.5 shrink-0 text-[#d4af37]" />
                   Available for weddings, corporate events, and concerts
                 </li>
-                <li className="flex items-center gap-2">
-                  <Calendar size={14} className="text-[#d4af37]" />
+                <li className="flex items-start gap-3">
+                  <Calendar size={16} className="mt-0.5 shrink-0 text-[#d4af37]" />
                   Advance booking recommended (2-4 weeks)
                 </li>
-                <li className="flex items-center gap-2">
-                  <Calendar size={14} className="text-[#d4af37]" />
+                <li className="flex items-start gap-3">
+                  <Calendar size={16} className="mt-0.5 shrink-0 text-[#d4af37]" />
                   Pan-India availability for shows
                 </li>
               </ul>
@@ -125,33 +129,31 @@ export default function Booking() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-6 sm:p-8"
+              className="rounded-3xl border border-[#2a2a2a] bg-[#111] p-8 sm:p-10"
             >
-              <h3 className="mb-6 text-xl font-black leading-tight text-white">
+              <h3 className="mb-8 text-xl font-black leading-snug text-white">
                 Fill Booking <span className="gradient-gold">Enquiry</span>
               </h3>
 
               <div className="space-y-5">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Full Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:border-[#d4af37] focus:outline-none transition-colors"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white placeholder:text-gray-600 transition focus:border-[#d4af37] focus:outline-none"
+                />
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-5 sm:grid-cols-2">
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:border-[#d4af37] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white placeholder:text-gray-600 transition focus:border-[#d4af37] focus:outline-none"
                   />
                   <input
                     type="tel"
@@ -160,17 +162,17 @@ export default function Booking() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:border-[#d4af37] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white placeholder:text-gray-600 transition focus:border-[#d4af37] focus:outline-none"
                   />
                 </div>
 
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-5 sm:grid-cols-2">
                   <select
                     name="eventType"
                     value={formData.eventType}
                     onChange={handleChange}
                     required
-                    className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white focus:border-[#d4af37] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white transition focus:border-[#d4af37] focus:outline-none"
                   >
                     <option value="">Event Type</option>
                     <option value="wedding">Wedding</option>
@@ -186,7 +188,7 @@ export default function Booking() {
                     value={formData.eventDate}
                     onChange={handleChange}
                     required
-                    className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white focus:border-[#d4af37] focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white transition focus:border-[#d4af37] focus:outline-none"
                   />
                 </div>
 
@@ -197,7 +199,7 @@ export default function Booking() {
                   value={formData.city}
                   onChange={handleChange}
                   required
-                  className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:border-[#d4af37] focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white placeholder:text-gray-600 transition focus:border-[#d4af37] focus:outline-none"
                 />
 
                 <textarea
@@ -206,12 +208,12 @@ export default function Booking() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full bg-[#0a0a0a] border border-[#2a2a2a] rounded-lg px-4 py-3 text-white placeholder:text-gray-600 focus:border-[#d4af37] focus:outline-none transition-colors resize-none"
+                  className="w-full resize-none rounded-xl border border-[#2a2a2a] bg-[#0a0a0a] px-5 py-4 text-base text-white placeholder:text-gray-600 transition focus:border-[#d4af37] focus:outline-none"
                 />
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-gold text-black py-3 rounded-lg font-semibold hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
+                  className="mt-2 flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-gold py-4 text-base font-bold text-black transition hover:scale-[1.02]"
                 >
                   <Send size={18} />
                   Send Booking Enquiry
