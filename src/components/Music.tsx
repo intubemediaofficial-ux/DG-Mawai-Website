@@ -1,185 +1,117 @@
-"use client";
-
-import { Play, TrendingUp, Clock, ExternalLink } from "lucide-react";
+import { Clock, ExternalLink, Play, TrendingUp } from "lucide-react";
 
 const trendingSongs = [
-  {
-    title: "Tum Badal Gaye Raja Aa Gayi Kami Tere Pyar Me",
-    plays: "799K+",
-    year: "2024",
-    duration: "4:49",
-    trending: true,
-    spotifyUrl: "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s",
-  },
-  {
-    title: "Chhori Teri Chal Morni Ki Dhal",
-    plays: "583K+",
-    year: "2024",
-    duration: "5:22",
-    trending: true,
-    spotifyUrl: "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s",
-  },
-  {
-    title: "Camper Mein Baithe Gunde",
-    plays: "364K+",
-    year: "2024",
-    duration: "4:31",
-    trending: true,
-    spotifyUrl: "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s",
-  },
-  {
-    title: "Surme Paida Hote H Yha Chambal Ke Pani Me",
-    plays: "160K+",
-    year: "2025",
-    duration: "3:23",
-    trending: false,
-    spotifyUrl: "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s",
-  },
-  {
-    title: "Kabutar Bole Gutar Gu",
-    plays: "150K+",
-    year: "2024",
-    duration: "4:15",
-    trending: false,
-    spotifyUrl: "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s",
-  },
-  {
-    title: "Gurjar Ke Pyar Tero Nas Nas Me",
-    plays: "120K+",
-    year: "2024",
-    duration: "4:02",
-    trending: false,
-    spotifyUrl: "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s",
-  },
+  { title: "Tum Badal Gaye Raja Aa Gayi Kami Tere Pyar Me", plays: "799K+", year: "2024", duration: "4:49", trending: true },
+  { title: "Chhori Teri Chal Morni Ki Dhal", plays: "583K+", year: "2024", duration: "5:22", trending: true },
+  { title: "Camper Mein Baithe Gunde", plays: "364K+", year: "2024", duration: "4:31", trending: true },
+  { title: "Surme Paida Hote H Yha Chambal Ke Pani Me", plays: "160K+", year: "2025", duration: "3:23", trending: false },
+  { title: "Kabutar Bole Gutar Gu", plays: "150K+", year: "2024", duration: "4:15", trending: false },
+  { title: "Gurjar Ke Pyar Tero Nas Nas Me", plays: "120K+", year: "2024", duration: "4:02", trending: false },
 ];
 
 const upcomingSongs = [
-  {
-    title: "Mhari Tod De N Maal (EP)",
-    status: "Latest Release",
-    year: "2026",
-  },
-  {
-    title: "New Rasiya 2026",
-    status: "Coming Soon",
-    year: "2026",
-  },
-  {
-    title: "Jo Pike Redbull Ghume",
-    status: "Released",
-    year: "2025",
-  },
+  { title: "Mhari Tod De N Maal (EP)", status: "Latest Release", year: "2026" },
+  { title: "New Rasiya 2026", status: "Coming Soon", year: "2026" },
+  { title: "Jo Pike Redbull Ghume", status: "Released", year: "2025" },
 ];
+
+const spotifyUrl = "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s";
 
 export default function Music() {
   return (
-    <section id="music" className="py-20 px-4 bg-[#080808]">
-      <div className="section-divider mb-16" />
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            <span className="gradient-gold">Trending</span> Music
+    <section id="music" className="bg-[#080808] px-4 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="section-divider mb-10" />
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+            Music
+          </p>
+          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+            <span className="gradient-gold">Trending</span> Songs
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Viral hits and chart-topping Rasiya songs with millions of streams
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+            Viral Rasiya songs, fan favourites, and upcoming releases by DG Mawai.
           </p>
         </div>
 
-        {/* Song List */}
-        <div className="mb-12">
-          <div className="bg-[#141414] border border-[#2a2a2a] rounded-2xl overflow-hidden">
-            {/* Header */}
-            <div className="grid grid-cols-12 gap-4 px-6 py-3 border-b border-[#2a2a2a] text-xs text-gray-500 uppercase">
-              <div className="col-span-1">#</div>
-              <div className="col-span-5 sm:col-span-6">Title</div>
-              <div className="col-span-3 sm:col-span-2 text-center">Plays</div>
-              <div className="col-span-2 hidden sm:block">Year</div>
-              <div className="col-span-3 sm:col-span-1 text-right">
-                <Clock size={14} className="inline" />
-              </div>
-            </div>
-
-            {/* Songs */}
-            {trendingSongs.map((song, index) => (
-              <a
-                key={index}
-                href={song.spotifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="grid grid-cols-12 gap-4 px-6 py-4 hover:bg-[#1a1a1a] transition-colors items-center group"
-              >
-                <div className="col-span-1 text-gray-500 group-hover:text-[#d4af37]">
-                  <span className="group-hover:hidden">{index + 1}</span>
-                  <Play
-                    size={14}
-                    className="hidden group-hover:block text-[#d4af37]"
-                  />
-                </div>
-                <div className="col-span-5 sm:col-span-6">
-                  <p className="text-sm font-medium text-white group-hover:text-[#d4af37] transition-colors truncate">
-                    {song.title}
-                  </p>
-                  {song.trending && (
-                    <span className="inline-flex items-center gap-1 text-xs text-green-400 mt-1">
-                      <TrendingUp size={10} />
-                      Trending
-                    </span>
-                  )}
-                </div>
-                <div className="col-span-3 sm:col-span-2 text-center text-sm text-gray-400">
-                  {song.plays}
-                </div>
-                <div className="col-span-2 hidden sm:block text-sm text-gray-500">
-                  {song.year}
-                </div>
-                <div className="col-span-3 sm:col-span-1 text-right text-sm text-gray-500">
-                  {song.duration}
-                </div>
-              </a>
-            ))}
+        <div className="overflow-hidden rounded-[2rem] border border-[#2a2a2a] bg-[#141414]">
+          <div className="hidden grid-cols-12 gap-4 border-b border-[#2a2a2a] px-6 py-4 text-xs font-bold uppercase tracking-wider text-gray-500 sm:grid">
+            <div className="col-span-1">#</div>
+            <div className="col-span-6">Title</div>
+            <div className="col-span-2 text-center">Plays</div>
+            <div className="col-span-2 text-center">Year</div>
+            <div className="col-span-1 text-right"><Clock size={14} className="inline" /></div>
           </div>
+
+          {trendingSongs.map((song, index) => (
+            <a
+              key={song.title}
+              href={spotifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block border-b border-[#2a2a2a]/70 px-5 py-5 transition last:border-b-0 hover:bg-white/[0.03] sm:grid sm:grid-cols-12 sm:items-center sm:gap-4 sm:px-6"
+            >
+              <div className="hidden text-sm font-bold text-gray-500 sm:col-span-1 sm:block">
+                {index + 1}
+              </div>
+              <div className="sm:col-span-6">
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/15 sm:hidden">
+                    <Play size={15} className="text-[#d4af37]" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold leading-7 text-white transition hover:text-[#d4af37]">
+                      {song.title}
+                    </h3>
+                    {song.trending && (
+                      <span className="mt-2 inline-flex items-center gap-1 rounded-full bg-green-500/10 px-3 py-1 text-xs font-bold text-green-400">
+                        <TrendingUp size={12} />
+                        Trending
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-3 text-sm sm:col-span-5 sm:mt-0 sm:block sm:contents">
+                <p className="rounded-xl bg-black/25 px-3 py-2 text-center font-semibold text-gray-300 sm:col-span-2 sm:bg-transparent sm:p-0">
+                  {song.plays}
+                </p>
+                <p className="rounded-xl bg-black/25 px-3 py-2 text-center text-gray-400 sm:col-span-2 sm:bg-transparent sm:p-0">
+                  {song.year}
+                </p>
+                <p className="rounded-xl bg-black/25 px-3 py-2 text-center text-gray-400 sm:col-span-1 sm:bg-transparent sm:p-0 sm:text-right">
+                  {song.duration}
+                </p>
+              </div>
+            </a>
+          ))}
         </div>
 
-        {/* Upcoming Releases */}
-        <div>
-          <h3 className="text-xl font-bold mb-6 text-center">
+        <div className="mt-14">
+          <h3 className="mb-6 text-center text-2xl font-black leading-tight text-white">
             Upcoming & Latest <span className="gradient-gold">Releases</span>
           </h3>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {upcomingSongs.map((song, index) => (
-              <div
-                key={index}
-                className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-5 card-hover"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <span
-                    className={`text-xs px-3 py-1 rounded-full ${
-                      song.status === "Coming Soon"
-                        ? "bg-[#d4af37]/20 text-[#d4af37]"
-                        : song.status === "Latest Release"
-                          ? "bg-green-500/20 text-green-400"
-                          : "bg-blue-500/20 text-blue-400"
-                    }`}
-                  >
+          <div className="grid gap-5 sm:grid-cols-3">
+            {upcomingSongs.map((song) => (
+              <div key={song.title} className="rounded-3xl border border-[#2a2a2a] bg-[#141414] p-6 card-hover">
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-[#d4af37]/15 px-3 py-1 text-xs font-bold text-[#d4af37]">
                     {song.status}
                   </span>
-                  <span className="text-xs text-gray-500">{song.year}</span>
+                  <span className="text-xs font-semibold text-gray-500">
+                    {song.year}
+                  </span>
                 </div>
-                <h4 className="font-semibold text-white">{song.title}</h4>
+                <h4 className="text-lg font-bold leading-7 text-white">
+                  {song.title}
+                </h4>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Listen on all platforms */}
-        <div className="text-center mt-10">
-          <a
-            href="https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-gold text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform"
-          >
+        <div className="mt-12 text-center">
+          <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full bg-gradient-gold px-7 py-3 text-sm font-bold text-black transition hover:scale-105">
             <ExternalLink size={18} />
             Listen on All Platforms
           </a>

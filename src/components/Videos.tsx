@@ -1,105 +1,66 @@
+import Image from "next/image";
 import { Play } from "lucide-react";
 
 const videos = [
-  {
-    title: "DG Mawai Nonstop Rasiya Jukebox",
-    thumbnail: "https://img.youtube.com/vi/-aI_8bTTJBE/maxresdefault.jpg",
-    url: "https://www.youtube.com/watch?v=-aI_8bTTJBE",
-    views: "Trending",
-    duration: "26:39",
-  },
-  {
-    title: "Chhori Teri Chal Morni Ki Dhal - DG Mawai",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    url: "https://www.youtube.com/@DGMawaiofficial",
-    views: "500K+ Views",
-    duration: "5:22",
-  },
-  {
-    title: "Kabutar Bole Gutar Gu - New Dj Dance",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    url: "https://www.youtube.com/@DGMawaiofficial",
-    views: "300K+ Views",
-    duration: "4:15",
-  },
-  {
-    title: "Camper Mein Baithe Gunde - DG Mawai",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    url: "https://www.youtube.com/@DGMawaiofficial",
-    views: "360K+ Views",
-    duration: "4:31",
-  },
-  {
-    title: "Surme Paida Hote H Yha Chambal Ke Pani Me",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    url: "https://www.youtube.com/@DGMawaiofficial",
-    views: "160K+ Views",
-    duration: "3:23",
-  },
-  {
-    title: "Tum Badal Gaye Raja - Latest Rasiya 2025",
-    thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
-    url: "https://www.youtube.com/@DGMawaiofficial",
-    views: "800K+ Views",
-    duration: "4:49",
-  },
+  { title: "DG Mawai Nonstop Rasiya Jukebox", image: "/images/dg-mawai/photo-04.jpg", url: "https://www.youtube.com/watch?v=-aI_8bTTJBE", views: "Trending", duration: "26:39" },
+  { title: "Chhori Teri Chal Morni Ki Dhal - DG Mawai", image: "/images/dg-mawai/photo-06.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "500K+ Views", duration: "5:22" },
+  { title: "Kabutar Bole Gutar Gu - New DJ Dance", image: "/images/dg-mawai/photo-12.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "300K+ Views", duration: "4:15" },
+  { title: "Camper Mein Baithe Gunde - DG Mawai", image: "/images/dg-mawai/photo-08.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "360K+ Views", duration: "4:31" },
+  { title: "Surme Paida Hote H Yha Chambal Ke Pani Me", image: "/images/dg-mawai/photo-02.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "160K+ Views", duration: "3:23" },
+  { title: "Tum Badal Gaye Raja - Latest Rasiya 2025", image: "/images/dg-mawai/photo-10.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "800K+ Views", duration: "4:49" },
 ];
 
 export default function Videos() {
   return (
-    <section id="videos" className="py-20 px-4">
-      <div className="section-divider mb-16" />
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+    <section id="videos" className="bg-[#0a0a0a] px-4 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="section-divider mb-10" />
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+            Videos
+          </p>
+          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
             Music <span className="gradient-gold">Videos</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Watch the latest music videos, live performances, and behind-the-scenes content
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+            Watch DG Mawai songs, live performances, and new Rasiya releases on
+            the official YouTube channel.
           </p>
         </div>
 
-        {/* Video Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videos.map((video, index) => (
-            <a
-              key={index}
-              href={video.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group card-hover"
-            >
-              <div className="relative aspect-video bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden">
-                {/* Gradient overlay placeholder */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#0a0a0a] flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-[#d4af37]/20 border-2 border-[#d4af37] flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Play size={24} className="text-[#d4af37] ml-1" />
-                  </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {videos.map((video) => (
+            <a key={video.title} href={video.url} target="_blank" rel="noopener noreferrer" className="group card-hover">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#141414]">
+                <Image
+                  src={video.image}
+                  alt={`DG Mawai ${video.title}`}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover object-center transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
+                <div className="absolute left-5 top-5 flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#d4af37] bg-black/55 text-[#d4af37] backdrop-blur transition group-hover:bg-[#d4af37] group-hover:text-black">
+                  <Play size={24} className="ml-1" />
                 </div>
-                {/* Duration badge */}
-                <div className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
+                <div className="absolute right-4 top-4 rounded-full bg-black/75 px-3 py-1 text-xs font-bold text-white">
                   {video.duration}
                 </div>
-              </div>
-              <div className="mt-3">
-                <h4 className="font-medium text-sm text-white group-hover:text-[#d4af37] transition-colors line-clamp-2">
-                  {video.title}
-                </h4>
-                <p className="text-xs text-gray-500 mt-1">{video.views}</p>
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <h3 className="text-lg font-black leading-7 text-white transition group-hover:text-[#d4af37]">
+                    {video.title}
+                  </h3>
+                  <p className="mt-2 text-sm font-medium text-gray-300">
+                    {video.views}
+                  </p>
+                </div>
               </div>
             </a>
           ))}
         </div>
 
-        {/* YouTube Channel CTA */}
-        <div className="text-center mt-10">
-          <a
-            href="https://www.youtube.com/@DGMawaiofficial"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-red-500 text-red-400 px-6 py-3 rounded-full font-semibold hover:bg-red-500/10 transition-colors"
-          >
+        <div className="mt-12 text-center">
+          <a href="https://www.youtube.com/@DGMawaiofficial" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-red-500 px-6 py-3 text-sm font-bold text-red-400 transition hover:bg-red-500/10">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
             </svg>

@@ -1,95 +1,85 @@
-import { Mic2, Award, Heart, Star } from "lucide-react";
+import Image from "next/image";
+import { Award, Heart, Mic2, Star } from "lucide-react";
+
+const achievements = [
+  { icon: Award, value: "120K+", label: "Spotify Listeners" },
+  { icon: Heart, value: "50+", label: "Songs Released" },
+  { icon: Star, value: "Viral", label: "Trending Hits" },
+  { icon: Mic2, value: "500+", label: "Live Shows" },
+];
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4 relative">
-      <div className="section-divider mb-16" />
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+    <section id="about" className="relative bg-[#0a0a0a] px-4 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="section-divider mb-10" />
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+            Biography
+          </p>
+          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
             About <span className="gradient-gold">DG Mawai</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            The journey from a small village to becoming one of the most loved
-            Rasiya singers in Rajasthan
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
+            From folk roots to viral Rasiya songs, DG Mawai brings the sound of
+            Rajasthan to fans and live stages across India.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          {/* Bio Image Placeholder */}
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-2xl bg-gradient-to-br from-[#1a1a2e] to-[#141414] border border-[#2a2a2a] overflow-hidden flex items-center justify-center">
-              <div className="text-center p-8">
-                <Mic2 size={80} className="text-[#d4af37] mx-auto mb-4" />
-                <p className="text-[#d4af37] font-bold text-2xl">DG Mawai</p>
-                <p className="text-gray-500 text-sm mt-2">
-                  Rajasthani Rasiya King
-                </p>
-              </div>
+        <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="relative mx-auto w-full max-w-lg">
+            <div className="absolute -right-4 -top-4 h-28 w-28 rounded-3xl border-2 border-[#d4af37]/30" />
+            <div className="absolute -bottom-4 -left-4 h-28 w-28 rounded-3xl border-2 border-[#d4af37]/30" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#d4af37]/20 bg-[#141414] shadow-2xl shadow-black/40">
+              <Image
+                src="/images/dg-mawai/photo-08.jpg"
+                alt="DG Mawai traditional Rajasthani portrait"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-[#d4af37]/30 rounded-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-2 border-[#d4af37]/30 rounded-2xl" />
           </div>
 
-          {/* Bio Content */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 gradient-gold">
+            <h3 className="text-2xl font-black leading-tight text-white sm:text-3xl">
               The Voice of Chambal & Rajasthan
             </h3>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              DG Mawai is a renowned Rajasthani Rasiya singer who has
-              captivated millions with his powerful voice and authentic folk
-              music. Born and raised in the heartland of Rajasthan, DG Mawai
-              started his musical journey from a young age, inspired by the
-              rich cultural heritage of Gurjar and Rajasthani folk traditions.
-            </p>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              With hit songs like &quot;Tum Badal Gaye Raja&quot; (800K+ plays),
-              &quot;Chhori Teri Chal Morni Ki Dhal&quot; (580K+ plays), and
-              &quot;Camper Mein Baithe Gunde&quot; (360K+ plays), DG Mawai has
-              established himself as one of the top Rasiya singers in the
-              industry.
-            </p>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              His unique style blends traditional Rasiya melodies with modern
-              production, creating a sound that resonates with audiences across
-              Rajasthan, Haryana, UP, and beyond. From village celebrations to
-              massive stage shows, DG Mawai brings the energy and soul of
-              Rajasthani folk music to every performance.
-            </p>
+            <div className="mt-6 space-y-5 text-base leading-8 text-gray-300">
+              <p>
+                DG Mawai is a Rajasthani Rasiya singer known for his powerful
+                voice, energetic stage presence, and folk-inspired music style.
+                His songs connect deeply with audiences who love Gurjar,
+                Rajasthani, and Chambal-region folk culture.
+              </p>
+              <p>
+                With viral songs such as “Tum Badal Gaye Raja”, “Chhori Teri
+                Chal Morni Ki Dhal”, and “Camper Mein Baithe Gunde”, DG Mawai
+                has built a strong identity among Rasiya music fans.
+              </p>
+              <p>
+                From village celebrations and cultural programs to large public
+                stages, DG Mawai brings a complete professional performance
+                experience for weddings, festivals, concerts, and private shows.
+              </p>
+            </div>
 
-            {/* Achievements */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 bg-[#141414] border border-[#2a2a2a] rounded-xl p-3">
-                <Award size={24} className="text-[#d4af37]" />
-                <div>
-                  <p className="text-sm font-semibold">120K+</p>
-                  <p className="text-xs text-gray-500">Spotify Listeners</p>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {achievements.map(({ icon: Icon, value, label }) => (
+                <div key={label} className="flex items-center gap-4 rounded-2xl border border-[#2a2a2a] bg-[#141414] p-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37]/15">
+                    <Icon size={22} className="text-[#d4af37]" />
+                  </div>
+                  <div>
+                    <p className="text-lg font-black leading-tight text-white">
+                      {value}
+                    </p>
+                    <p className="mt-1 text-sm leading-5 text-gray-400">
+                      {label}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-3 bg-[#141414] border border-[#2a2a2a] rounded-xl p-3">
-                <Heart size={24} className="text-[#d4af37]" />
-                <div>
-                  <p className="text-sm font-semibold">50+ Songs</p>
-                  <p className="text-xs text-gray-500">Released</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-[#141414] border border-[#2a2a2a] rounded-xl p-3">
-                <Star size={24} className="text-[#d4af37]" />
-                <div>
-                  <p className="text-sm font-semibold">Viral Hits</p>
-                  <p className="text-xs text-gray-500">Multiple Trending</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 bg-[#141414] border border-[#2a2a2a] rounded-xl p-3">
-                <Mic2 size={24} className="text-[#d4af37]" />
-                <div>
-                  <p className="text-sm font-semibold">500+ Shows</p>
-                  <p className="text-xs text-gray-500">Live Performances</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

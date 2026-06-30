@@ -29,24 +29,27 @@ export default function Booking() {
   };
 
   return (
-    <section id="booking" className="py-20 px-4 bg-[#080808]">
-      <div className="section-divider mb-16" />
-      <div className="max-w-6xl mx-auto">
+    <section id="booking" className="bg-[#080808] px-4 py-16 sm:py-24">
+      <div className="section-divider mb-10" />
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+            Booking
+          </p>
+          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
             Book a <span className="gradient-gold">Show</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
             Want DG Mawai to perform at your event? Fill out the form below or
-            contact directly
+            contact directly.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-6 gradient-gold">
+            <h3 className="mb-6 text-2xl font-black leading-tight text-[#d4af37]">
               Contact Information
             </h3>
 
@@ -60,7 +63,7 @@ export default function Booking() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
-                  <p className="text-white font-medium">
+                  <p className="break-all text-base font-semibold leading-6 text-white">
                     Dgmawaiofficial@gmail.com
                   </p>
                 </div>
@@ -120,9 +123,9 @@ export default function Booking() {
           <div>
             <form
               onSubmit={handleSubmit}
-              className="bg-[#141414] border border-[#2a2a2a] rounded-2xl p-6"
+              className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-5 sm:p-7"
             >
-              <h3 className="text-lg font-bold mb-6">
+              <h3 className="mb-6 text-xl font-black leading-tight text-white">
                 Fill Booking <span className="gradient-gold">Enquiry</span>
               </h3>
 
@@ -139,7 +142,7 @@ export default function Booking() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
                   <input
                     type="email"
                     name="email"
@@ -159,7 +162,7 @@ export default function Booking() {
                   />
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
                   <select
                     name="eventType"
                     value={formData.eventType}

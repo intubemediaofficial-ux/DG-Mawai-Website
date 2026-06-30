@@ -1,24 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    image: "https://img.youtube.com/vi/-aI_8bTTJBE/maxresdefault.jpg",
-    alt: "DG Mawai & PS Queen - Latest Gangster Rasiya 2025",
+    image: "/images/dg-mawai/photo-02.jpg",
+    alt: "DG Mawai riverside artist portrait",
   },
   {
-    image: "https://img.youtube.com/vi/ML5N5Fw3RD0/maxresdefault.jpg",
-    alt: "DG Mawai - Felling Beer Ki Aave | New Viral Rasiya 2026",
+    image: "/images/dg-mawai/photo-04.jpg",
+    alt: "DG Mawai live stage performance",
   },
   {
-    image: "https://img.youtube.com/vi/gRRbkEbGSWU/maxresdefault.jpg",
-    alt: "DG Mawai - Live Performance",
+    image: "/images/dg-mawai/photo-06.jpg",
+    alt: "DG Mawai live event performance",
   },
   {
-    image: "https://img.youtube.com/vi/XqZsoesa55w/maxresdefault.jpg",
-    alt: "DG Mawai - Kabutar Bole Gutar Gu",
+    image: "/images/dg-mawai/photo-08.jpg",
+    alt: "DG Mawai traditional Rajasthani look",
+  },
+  {
+    image: "/images/dg-mawai/photo-10.jpg",
+    alt: "DG Mawai outdoor artist photoshoot",
   },
 ];
 
@@ -26,89 +31,80 @@ export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = window.setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
-    return () => clearInterval(timer);
+    }, 4500);
+    return () => window.clearInterval(timer);
   }, []);
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
   return (
-    <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] overflow-hidden rounded-2xl border border-[#2a2a2a]">
-      {/* Slides */}
+    <div className="relative h-[520px] w-full overflow-hidden rounded-[2rem] border border-[#d4af37]/20 bg-[#111] shadow-2xl shadow-black/40 sm:h-[620px] lg:h-[720px]">
       {slides.map((slide, index) => (
         <div
-          key={index}
+          key={slide.image}
           className={`absolute inset-0 transition-opacity duration-700 ${
-            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+            index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
         >
-          <img
+          <Image
             src={slide.image}
             alt={slide.alt}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.style.display = "none";
-              if (target.parentElement) {
-                target.parentElement.classList.add(
-                  "bg-gradient-to-br",
-                  "from-[#1a1a2e]",
-                  "to-[#0a0a0a]"
-                );
-              }
-            }}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            priority={index === 0}
+            className="object-cover object-center"
           />
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/20" />
         </div>
       ))}
 
-      {/* Navigation Arrows */}
+      <div className="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-8">
+        <div className="max-w-xl rounded-2xl border border-white/10 bg-black/45 p-4 backdrop-blur-md sm:p-6">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#d4af37]">
+            Official Artist Website
+          </p>
+          <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
+            DG Mawai
+          </h2>
+          <p className="mt-3 max-w-md text-sm leading-7 text-gray-200 sm:text-base">
+            Rajasthani Rasiya singer, live performer, and folk music artist.
+          </p>
+        </div>
+      </div>
+
       <button
+        type="button"
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 border border-[#d4af37]/50 flex items-center justify-center text-[#d4af37] hover:bg-[#d4af37]/20 transition-colors"
+        aria-label="Previous photo"
+        className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#d4af37]/40 bg-black/55 text-[#d4af37] backdrop-blur transition hover:bg-[#d4af37] hover:text-black"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={22} />
       </button>
       <button
+        type="button"
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/50 border border-[#d4af37]/50 flex items-center justify-center text-[#d4af37] hover:bg-[#d4af37]/20 transition-colors"
+        aria-label="Next photo"
+        className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-[#d4af37]/40 bg-black/55 text-[#d4af37] backdrop-blur transition hover:bg-[#d4af37] hover:text-black"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={22} />
       </button>
 
-      {/* Dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-        {slides.map((_, index) => (
+      <div className="absolute bottom-4 right-5 z-20 flex items-center gap-2 sm:bottom-8 sm:right-8">
+        {slides.map((slide, index) => (
           <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all ${
-              index === currentSlide
-                ? "bg-[#d4af37] w-6"
-                : "bg-white/40 hover:bg-white/60"
+            key={slide.image}
+            type="button"
+            onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to photo ${index + 1}`}
+            className={`h-2.5 rounded-full transition-all ${
+              index === currentSlide ? "w-8 bg-[#d4af37]" : "w-2.5 bg-white/45"
             }`}
           />
         ))}
-      </div>
-
-      {/* Caption */}
-      <div className="absolute bottom-12 left-6 z-20">
-        <p className="text-white font-semibold text-lg drop-shadow-lg">
-          {slides[currentSlide].alt}
-        </p>
       </div>
     </div>
   );
