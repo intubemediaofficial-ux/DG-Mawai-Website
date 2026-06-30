@@ -1,7 +1,12 @@
+"use client";
+
 import { Music, Play, Users } from "lucide-react";
+import { useSiteContent } from "@/lib/useSiteContent";
 import HeroSlider from "./HeroSlider";
 
 export default function Hero() {
+  const { content } = useSiteContent();
+
   return (
     <section id="home" className="relative overflow-hidden px-4 pt-24 pb-16 sm:pt-28 sm:pb-24">
       <div className="absolute inset-0 bg-gradient-to-br from-[#050505] via-[#121224] to-[#050505]" />
@@ -15,26 +20,19 @@ export default function Hero() {
           <div className="order-2 text-center lg:order-1 lg:text-left">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#d4af37]/30 bg-[#d4af37]/10 px-4 py-2 text-sm font-semibold text-[#d4af37]">
               <Music size={16} />
-              Rajasthani Rasiya Singer
+              {content.hero.badge}
             </div>
 
             <h1 className="max-w-4xl text-5xl font-black leading-[1.05] tracking-tight text-white sm:text-7xl lg:text-8xl">
-              DG <span className="gradient-gold">Mawai</span>
+              {content.hero.title} <span className="gradient-gold">{content.hero.highlight}</span>
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300 sm:text-xl lg:mx-0">
-              The Voice of Rajasthan. Viral Rasiya hits, energetic live shows,
-              traditional folk style, and professional event bookings across
-              India.
+              {content.hero.tagline}
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:max-w-2xl">
-              {[
-                ["120K+", "Monthly Listeners"],
-                ["50+", "Songs Released"],
-                ["10M+", "Total Streams"],
-                ["500+", "Live Shows"],
-              ].map(([value, label]) => (
+              {content.hero.stats.map(({ value, label }) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center">
                   <p className="text-2xl font-black leading-none text-[#d4af37] sm:text-3xl">
                     {value}

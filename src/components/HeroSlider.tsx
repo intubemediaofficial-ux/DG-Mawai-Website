@@ -3,56 +3,38 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const slides = [
-  {
-    image: "/images/dg-mawai/photo-02.jpg",
-    alt: "DG Mawai riverside artist portrait",
-  },
-  {
-    image: "/images/dg-mawai/photo-04.jpg",
-    alt: "DG Mawai live stage performance",
-  },
-  {
-    image: "/images/dg-mawai/photo-06.jpg",
-    alt: "DG Mawai live event performance",
-  },
-  {
-    image: "/images/dg-mawai/photo-08.jpg",
-    alt: "DG Mawai traditional Rajasthani look",
-  },
-  {
-    image: "/images/dg-mawai/photo-10.jpg",
-    alt: "DG Mawai outdoor artist photoshoot",
-  },
-];
+import { useSiteContent } from "@/lib/useSiteContent";
 
 export default function HeroSlider() {
+  const { content } = useSiteContent();
+  const slides = content.photos.filter((photo) => photo.hero).slice(0, 5);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % Math.max(slides.length, 1));
     }, 4500);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const safeSlide = slides.length > 0 ? currentSlide % slides.length : 0;
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % Math.max(slides.length, 1));
   const prevSlide = () =>
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % Math.max(slides.length, 1));
 
   return (
     <div className="relative h-[520px] w-full overflow-hidden rounded-[2rem] border border-[#d4af37]/20 bg-[#111] shadow-2xl shadow-black/40 sm:h-[620px] lg:h-[720px]">
       {slides.map((slide, index) => (
         <div
-          key={slide.image}
+          key={slide.src}
           className={`absolute inset-0 transition-opacity duration-700 ${
-            index === currentSlide ? "opacity-100" : "opacity-0"
+            index === safeSlide ? "opacity-100" : "opacity-0"
           }`}
         >
           <Image
-            src={slide.image}
-            alt={slide.alt}
+            src={slide.src}
+            alt={`DG Mawai ${slide.label}`}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             priority={index === 0}
@@ -68,10 +50,10 @@ export default function HeroSlider() {
             Official Artist Website
           </p>
           <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
-            DG Mawai
+            {content.hero.title} {content.hero.highlight}
           </h2>
           <p className="mt-3 max-w-md text-sm leading-7 text-gray-200 sm:text-base">
-            Rajasthani Rasiya singer, live performer, and folk music artist.
+            {content.hero.badge} | Live performer and folk music artist.
           </p>
         </div>
       </div>
@@ -96,12 +78,12 @@ export default function HeroSlider() {
       <div className="absolute bottom-4 right-5 z-20 flex items-center gap-2 sm:bottom-8 sm:right-8">
         {slides.map((slide, index) => (
           <button
-            key={slide.image}
+            key={slide.src}
             type="button"
             onClick={() => setCurrentSlide(index)}
             aria-label={`Go to photo ${index + 1}`}
             className={`h-2.5 rounded-full transition-all ${
-              index === currentSlide ? "w-8 bg-[#d4af37]" : "w-2.5 bg-white/45"
+              index === safeSlide ? "w-8 bg-[#d4af37]" : "w-2.5 bg-white/45"
             }`}
           />
         ))}

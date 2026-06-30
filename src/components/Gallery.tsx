@@ -1,21 +1,11 @@
-import Image from "next/image";
+"use client";
 
-const galleryItems = [
-  { src: "/images/dg-mawai/photo-02.jpg", label: "Riverside Portrait", category: "Photoshoot", large: true },
-  { src: "/images/dg-mawai/photo-04.jpg", label: "Live Performance", category: "Stage" },
-  { src: "/images/dg-mawai/photo-06.jpg", label: "Music Community Event", category: "Live" },
-  { src: "/images/dg-mawai/photo-08.jpg", label: "Rajasthani Look", category: "Portrait" },
-  { src: "/images/dg-mawai/photo-10.jpg", label: "Outdoor Photoshoot", category: "Artist" },
-  { src: "/images/dg-mawai/photo-12.jpg", label: "Celebration Moment", category: "Event", large: true },
-  { src: "/images/dg-mawai/photo-01.jpg", label: "Artist Style", category: "Portrait" },
-  { src: "/images/dg-mawai/photo-03.jpg", label: "Traditional Shoot", category: "Culture" },
-  { src: "/images/dg-mawai/photo-05.jpg", label: "Studio Look", category: "Portrait" },
-  { src: "/images/dg-mawai/photo-07.jpg", label: "Roadside Portrait", category: "Artist" },
-  { src: "/images/dg-mawai/photo-09.jpg", label: "Folk Look", category: "Culture" },
-  { src: "/images/dg-mawai/photo-11.jpg", label: "Royal Style", category: "Portrait" },
-];
+import Image from "next/image";
+import { useSiteContent } from "@/lib/useSiteContent";
 
 export default function Gallery() {
+  const { content } = useSiteContent();
+
   return (
     <section id="gallery" className="bg-[#0a0a0a] px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl">
@@ -34,7 +24,7 @@ export default function Gallery() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {galleryItems.map((item) => (
+          {content.photos.map((item) => (
             <figure
               key={item.src}
               className={`group relative overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#141414] shadow-xl shadow-black/20 ${

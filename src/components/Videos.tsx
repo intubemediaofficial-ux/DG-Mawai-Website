@@ -1,16 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { Play } from "lucide-react";
-
-const videos = [
-  { title: "DG Mawai Nonstop Rasiya Jukebox", image: "/images/dg-mawai/photo-04.jpg", url: "https://www.youtube.com/watch?v=-aI_8bTTJBE", views: "Trending", duration: "26:39" },
-  { title: "Chhori Teri Chal Morni Ki Dhal - DG Mawai", image: "/images/dg-mawai/photo-06.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "500K+ Views", duration: "5:22" },
-  { title: "Kabutar Bole Gutar Gu - New DJ Dance", image: "/images/dg-mawai/photo-12.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "300K+ Views", duration: "4:15" },
-  { title: "Camper Mein Baithe Gunde - DG Mawai", image: "/images/dg-mawai/photo-08.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "360K+ Views", duration: "4:31" },
-  { title: "Surme Paida Hote H Yha Chambal Ke Pani Me", image: "/images/dg-mawai/photo-02.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "160K+ Views", duration: "3:23" },
-  { title: "Tum Badal Gaye Raja - Latest Rasiya 2025", image: "/images/dg-mawai/photo-10.jpg", url: "https://www.youtube.com/@DGMawaiofficial", views: "800K+ Views", duration: "4:49" },
-];
+import { useSiteContent } from "@/lib/useSiteContent";
 
 export default function Videos() {
+  const { content } = useSiteContent();
+
   return (
     <section id="videos" className="bg-[#0a0a0a] px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl">
@@ -29,7 +25,7 @@ export default function Videos() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {videos.map((video) => (
+          {content.videos.map((video) => (
             <a key={video.title} href={video.url} target="_blank" rel="noopener noreferrer" className="group card-hover">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[#141414]">
                 <Image

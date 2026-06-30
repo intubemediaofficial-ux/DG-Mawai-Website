@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { Send, Phone, Mail, MapPin, Calendar } from "lucide-react";
+import { useSiteContent } from "@/lib/useSiteContent";
 
 export default function Booking() {
+  const { content } = useSiteContent();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,7 +27,7 @@ export default function Booking() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMessage = `Hello DG Mawai Team!%0A%0AI want to book a show.%0A%0AName: ${formData.name}%0AEvent: ${formData.eventType}%0ADate: ${formData.eventDate}%0ACity: ${formData.city}%0ADetails: ${formData.message}`;
-    window.open(`https://wa.me/919999999999?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/${content.contact.whatsapp}?text=${whatsappMessage}`, "_blank");
   };
 
   return (
@@ -55,7 +57,7 @@ export default function Booking() {
 
             <div className="space-y-4 mb-8">
               <a
-                href="mailto:Dgmawaiofficial@gmail.com"
+                href={`mailto:${content.contact.email}`}
                 className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-4 hover:border-[#d4af37]/50 transition-colors"
               >
                 <div className="w-10 h-10 rounded-full bg-[#d4af37]/20 flex items-center justify-center">
@@ -64,13 +66,13 @@ export default function Booking() {
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
                   <p className="break-all text-base font-semibold leading-6 text-white">
-                    Dgmawaiofficial@gmail.com
+                    {content.contact.email}
                   </p>
                 </div>
               </a>
 
               <a
-                href="https://wa.me/919999999999"
+                href={`https://wa.me/${content.contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 bg-[#141414] border border-[#2a2a2a] rounded-xl p-4 hover:border-[#d4af37]/50 transition-colors"
@@ -92,7 +94,7 @@ export default function Booking() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Based in</p>
-                  <p className="text-white font-medium">Rajasthan, India</p>
+                  <p className="text-white font-medium">{content.contact.location}</p>
                 </div>
               </div>
             </div>

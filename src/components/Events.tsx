@@ -1,43 +1,8 @@
-import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
+"use client";
 
-const upcomingEvents = [
-  {
-    title: "Live Rasiya Night",
-    date: "15 July 2026",
-    time: "8:00 PM",
-    venue: "Rajasthan Cultural Center",
-    city: "Jaipur, Rajasthan",
-    status: "Tickets Available",
-    price: "From \u20b9499",
-  },
-  {
-    title: "Gurjar Mahotsav 2026",
-    date: "22 July 2026",
-    time: "7:00 PM",
-    venue: "Community Ground",
-    city: "Bharatpur, Rajasthan",
-    status: "Tickets Available",
-    price: "From \u20b9299",
-  },
-  {
-    title: "Independence Day Special Show",
-    date: "15 August 2026",
-    time: "6:00 PM",
-    venue: "Stadium Ground",
-    city: "Agra, UP",
-    status: "Coming Soon",
-    price: "TBA",
-  },
-  {
-    title: "Navratri Rasiya Utsav",
-    date: "October 2026",
-    time: "7:30 PM",
-    venue: "Main Stage",
-    city: "Mathura, UP",
-    status: "Coming Soon",
-    price: "TBA",
-  },
-];
+import { Calendar, MapPin, Clock, Ticket } from "lucide-react";
+import { useSiteContent } from "@/lib/useSiteContent";
+
 
 const pastEvents = [
   { city: "Jaipur", event: "Rajasthan Folk Festival 2025" },
@@ -49,6 +14,8 @@ const pastEvents = [
 ];
 
 export default function Events() {
+  const { content } = useSiteContent();
+
   return (
     <section id="events" className="bg-[#080808] px-4 py-16 sm:py-24">
       <div className="section-divider mb-10" />
@@ -68,7 +35,7 @@ export default function Events() {
 
         {/* Events Grid */}
         <div className="mb-12 grid gap-6 lg:grid-cols-2">
-          {upcomingEvents.map((event, index) => (
+          {content.events.map((event, index) => (
             <div
               key={index}
               className="rounded-[2rem] border border-[#2a2a2a] bg-[#141414] p-5 card-hover sm:p-6"

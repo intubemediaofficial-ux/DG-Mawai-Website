@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Award, Heart, Mic2, Star } from "lucide-react";
+import { useSiteContent } from "@/lib/useSiteContent";
 
 const achievements = [
   { icon: Award, value: "120K+", label: "Spotify Listeners" },
@@ -9,20 +12,21 @@ const achievements = [
 ];
 
 export default function About() {
+  const { content } = useSiteContent();
+
   return (
     <section id="about" className="relative bg-[#0a0a0a] px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="section-divider mb-10" />
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
-            Biography
+            {content.about.eyebrow}
           </p>
           <h2 className="text-3xl font-black leading-tight text-white sm:text-5xl">
-            About <span className="gradient-gold">DG Mawai</span>
+            {content.about.title} <span className="gradient-gold">{content.about.highlight}</span>
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-gray-400">
-            From folk roots to viral Rasiya songs, DG Mawai brings the sound of
-            Rajasthan to fans and live stages across India.
+            {content.about.intro}
           </p>
         </div>
 
@@ -32,7 +36,7 @@ export default function About() {
             <div className="absolute -bottom-4 -left-4 h-28 w-28 rounded-3xl border-2 border-[#d4af37]/30" />
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#d4af37]/20 bg-[#141414] shadow-2xl shadow-black/40">
               <Image
-                src="/images/dg-mawai/photo-08.jpg"
+                src={content.about.image}
                 alt="DG Mawai traditional Rajasthani portrait"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
@@ -43,25 +47,12 @@ export default function About() {
 
           <div>
             <h3 className="text-2xl font-black leading-tight text-white sm:text-3xl">
-              The Voice of Chambal & Rajasthan
+              {content.about.heading}
             </h3>
             <div className="mt-6 space-y-5 text-base leading-8 text-gray-300">
-              <p>
-                DG Mawai is a Rajasthani Rasiya singer known for his powerful
-                voice, energetic stage presence, and folk-inspired music style.
-                His songs connect deeply with audiences who love Gurjar,
-                Rajasthani, and Chambal-region folk culture.
-              </p>
-              <p>
-                With viral songs such as “Tum Badal Gaye Raja”, “Chhori Teri
-                Chal Morni Ki Dhal”, and “Camper Mein Baithe Gunde”, DG Mawai
-                has built a strong identity among Rasiya music fans.
-              </p>
-              <p>
-                From village celebrations and cultural programs to large public
-                stages, DG Mawai brings a complete professional performance
-                experience for weddings, festivals, concerts, and private shows.
-              </p>
+              {content.about.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">

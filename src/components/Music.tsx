@@ -1,23 +1,13 @@
+"use client";
+
 import { Clock, ExternalLink, Play, TrendingUp } from "lucide-react";
-
-const trendingSongs = [
-  { title: "Tum Badal Gaye Raja Aa Gayi Kami Tere Pyar Me", plays: "799K+", year: "2024", duration: "4:49", trending: true },
-  { title: "Chhori Teri Chal Morni Ki Dhal", plays: "583K+", year: "2024", duration: "5:22", trending: true },
-  { title: "Camper Mein Baithe Gunde", plays: "364K+", year: "2024", duration: "4:31", trending: true },
-  { title: "Surme Paida Hote H Yha Chambal Ke Pani Me", plays: "160K+", year: "2025", duration: "3:23", trending: false },
-  { title: "Kabutar Bole Gutar Gu", plays: "150K+", year: "2024", duration: "4:15", trending: false },
-  { title: "Gurjar Ke Pyar Tero Nas Nas Me", plays: "120K+", year: "2024", duration: "4:02", trending: false },
-];
-
-const upcomingSongs = [
-  { title: "Mhari Tod De N Maal (EP)", status: "Latest Release", year: "2026" },
-  { title: "New Rasiya 2026", status: "Coming Soon", year: "2026" },
-  { title: "Jo Pike Redbull Ghume", status: "Released", year: "2025" },
-];
+import { useSiteContent } from "@/lib/useSiteContent";
 
 const spotifyUrl = "https://open.spotify.com/artist/4uLGJavHBsutDtDOzNG18s";
 
 export default function Music() {
+  const { content } = useSiteContent();
+
   return (
     <section id="music" className="bg-[#080808] px-4 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl">
@@ -43,7 +33,7 @@ export default function Music() {
             <div className="col-span-1 text-right"><Clock size={14} className="inline" /></div>
           </div>
 
-          {trendingSongs.map((song, index) => (
+          {content.songs.map((song, index) => (
             <a
               key={song.title}
               href={spotifyUrl}
@@ -92,7 +82,7 @@ export default function Music() {
             Upcoming & Latest <span className="gradient-gold">Releases</span>
           </h3>
           <div className="grid gap-5 sm:grid-cols-3">
-            {upcomingSongs.map((song) => (
+            {content.releases.map((song) => (
               <div key={song.title} className="rounded-3xl border border-[#2a2a2a] bg-[#141414] p-6 card-hover">
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <span className="rounded-full bg-[#d4af37]/15 px-3 py-1 text-xs font-bold text-[#d4af37]">
