@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-[#2a2a2a] bg-[#0a0a0a]/90 backdrop-blur-md">
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+      <div className="mx-auto max-w-7xl px-[18px] sm:px-8 lg:px-16">
         <div className="flex h-20 items-center justify-between">
           <a href="#home" className="text-2xl font-bold gradient-gold">
             DG Mawai
@@ -56,7 +56,7 @@ export default function Navbar() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="border-t border-[#2a2a2a] bg-[#0a0a0a]/95 backdrop-blur-md md:hidden">
-          <div className="flex flex-col gap-6 px-8 py-8">
+          <div className="flex flex-col gap-5 px-[18px] py-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -70,7 +70,7 @@ export default function Navbar() {
             <a
               href="#booking"
               onClick={() => setIsOpen(false)}
-              className="mt-2 rounded-full bg-gradient-gold px-7 py-3 text-center text-sm font-bold text-black"
+              className="mt-3 rounded-full bg-gradient-gold px-7 py-3.5 text-center text-sm font-bold text-black"
             >
               Book Now
             </a>

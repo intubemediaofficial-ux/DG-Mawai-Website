@@ -3,17 +3,17 @@ import { Mail, Heart } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="border-t border-[#2a2a2a] bg-[#0a0a0a]">
-      <div className="mx-auto max-w-7xl px-8 pb-10 pt-20 sm:px-12 lg:px-16">
-        <div className="mb-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-[18px] pb-8 pt-12 sm:px-8 sm:pb-10 sm:pt-16 lg:px-16 lg:pt-20">
+        <div className="mb-10 grid gap-8 sm:mb-12 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h3 className="mb-5 text-2xl font-bold gradient-gold">DG Mawai</h3>
-            <p className="mb-8 max-w-sm text-sm leading-7 text-gray-400">
+            <h3 className="mb-4 text-xl font-bold gradient-gold sm:text-2xl">DG Mawai</h3>
+            <p className="mb-6 max-w-sm text-sm leading-[1.7] text-gray-400">
               Rajasthani Rasiya Singer | The Voice of Chambal | Available for
               live shows, weddings, and events across India.
             </p>
             {/* Social Links */}
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3 sm:gap-4">
               <a
                 href="https://www.instagram.com/dg_mavi_gurjar"
                 target="_blank"
@@ -57,8 +57,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="mb-6 text-base font-semibold text-white">Quick Links</h4>
-            <ul className="space-y-4 text-sm">
+            <h4 className="mb-4 text-sm font-semibold text-white sm:mb-5 sm:text-base">Quick Links</h4>
+            <ul className="space-y-3 text-sm sm:space-y-4">
               <li><a href="#about" className="text-gray-400 transition-colors hover:text-[#d4af37]">About</a></li>
               <li><a href="#music" className="text-gray-400 transition-colors hover:text-[#d4af37]">Music</a></li>
               <li><a href="#videos" className="text-gray-400 transition-colors hover:text-[#d4af37]">Videos</a></li>
@@ -70,8 +70,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-6 text-base font-semibold text-white">Contact</h4>
-            <ul className="space-y-4 text-sm leading-relaxed">
+            <h4 className="mb-4 text-sm font-semibold text-white sm:mb-5 sm:text-base">Contact</h4>
+            <ul className="space-y-3 text-sm leading-[1.7] sm:space-y-4">
               <li className="text-gray-400">
                 <span className="text-[#d4af37]">Email:</span>{" "}
                 Dgmawaiofficial@gmail.com
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-[#2a2a2a] pt-8 text-center">
+        <div className="border-t border-[#2a2a2a] pt-6 text-center sm:pt-8">
           <p className="flex items-center justify-center gap-1.5 text-sm text-gray-500">
             &copy; {new Date().getFullYear()} DG Mawai. All Rights Reserved.
             Made with <Heart size={12} className="text-red-500" /> in India

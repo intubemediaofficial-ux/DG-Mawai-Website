@@ -10,27 +10,27 @@ export default function Videos() {
   return (
     <section id="videos" className="bg-[#0a0a0a]">
       {/* Divider */}
-      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+      <div className="mx-auto max-w-7xl px-[18px] sm:px-8 lg:px-16">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-[#d4af37]/40 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-8 py-28 sm:px-12 sm:py-36 lg:px-16 lg:py-44">
+      <div className="mx-auto max-w-7xl px-[18px] py-12 sm:px-8 sm:py-16 lg:px-16 lg:py-20">
         {/* Section Header */}
-        <div className="mx-auto mb-20 max-w-3xl text-center">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[#d4af37]">
+        <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[#d4af37] sm:mb-4 sm:text-sm">
             Videos
           </p>
-          <h2 className="text-4xl font-black leading-snug text-white sm:text-5xl lg:text-6xl">
+          <h2 className="text-2xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
             Music <span className="gradient-gold">Videos</span>
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-gray-400">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-[1.75] text-gray-400 sm:mt-6 sm:text-base lg:text-lg">
             Watch DG Mawai songs, live performances, and new Rasiya releases on
             the official YouTube channel.
           </p>
         </div>
 
         {/* Videos Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {content.videos.map((video) => (
             <a
               key={video.title}
@@ -56,11 +56,11 @@ export default function Videos() {
                   {video.duration}
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-base font-bold leading-relaxed text-white group-hover:text-[#d4af37] sm:text-lg">
+              <div className="p-4 sm:p-5 lg:p-6">
+                <h3 className="text-sm font-bold leading-relaxed text-white group-hover:text-[#d4af37] sm:text-base lg:text-lg">
                   {video.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium text-gray-400">
+                <p className="mt-2 text-xs font-medium text-gray-400 sm:mt-3 sm:text-sm">
                   {video.views}
                 </p>
               </div>
@@ -69,12 +69,12 @@ export default function Videos() {
         </div>
 
         {/* Subscribe CTA */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center sm:mt-14">
           <a
             href="https://www.youtube.com/@DGMawaiofficial"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-14 items-center gap-3 rounded-full bg-red-600 px-10 py-4 text-base font-bold text-white transition hover:scale-105 hover:bg-red-500"
+            className="inline-flex min-h-12 items-center gap-3 rounded-full bg-red-600 px-8 py-3.5 text-sm font-bold text-white transition hover:scale-105 hover:bg-red-500 sm:min-h-14 sm:px-10 sm:py-4 sm:text-base"
           >
             <ExternalLink size={20} />
             Subscribe on YouTube
