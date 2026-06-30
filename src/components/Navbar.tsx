@@ -17,27 +17,27 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-[#2a2a2a]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-        <div className="flex items-center justify-between h-18">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-[#2a2a2a] bg-[#0a0a0a]/90 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-8 sm:px-12 lg:px-16">
+        <div className="flex h-20 items-center justify-between">
           <a href="#home" className="text-2xl font-bold gradient-gold">
             DG Mawai
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-10 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm text-gray-300 hover:text-[#d4af37] transition-colors duration-300"
+                className="text-sm font-medium text-gray-300 transition-colors duration-300 hover:text-[#d4af37]"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#booking"
-              className="bg-gradient-gold text-black px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-transform"
+              className="rounded-full bg-gradient-gold px-7 py-3 text-sm font-bold text-black transition hover:scale-105"
             >
               Book Now
             </a>
@@ -46,23 +46,23 @@ export default function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white"
+            className="text-white md:hidden"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-md border-t border-[#2a2a2a]">
-          <div className="px-6 py-5 flex flex-col gap-5">
+        <div className="border-t border-[#2a2a2a] bg-[#0a0a0a]/95 backdrop-blur-md md:hidden">
+          <div className="flex flex-col gap-6 px-8 py-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-gray-300 hover:text-[#d4af37] transition-colors"
+                className="text-base font-medium text-gray-300 transition-colors hover:text-[#d4af37]"
               >
                 {link.label}
               </a>
@@ -70,7 +70,7 @@ export default function Navbar() {
             <a
               href="#booking"
               onClick={() => setIsOpen(false)}
-              className="bg-gradient-gold text-black px-5 py-2 rounded-full text-sm font-semibold text-center"
+              className="mt-2 rounded-full bg-gradient-gold px-7 py-3 text-center text-sm font-bold text-black"
             >
               Book Now
             </a>
